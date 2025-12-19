@@ -13,8 +13,8 @@ alerting:
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
-  - "rec_rules.yml"
-  - "rules.yml"
+  - "rec_rules.yaml"
+  - "rules.yaml"
 
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
@@ -35,3 +35,15 @@ scrape_configs:
   - job_name: "prom_python_app"
     static_configs:
     - targets: ['localhost:8001']
+
+  - job_name: "prom_go_app"
+    static_configs:
+    - targets: ['localhost:8000']
+
+  - job_name: "linux_vm_node"
+    static_configs:
+    - targets: ['192.168.1.10:8001']
+
+  - job_name: "windows_vm_node"
+    static_configs:
+    - targets: ['192.168.1.15:8001']
